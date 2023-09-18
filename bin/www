@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 
-var app = require('../app');
-var debug = require('debug')('cci:server');
-var http = require('http');
+const app = require('../app');
+const http = require('http');
 
-var port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-var server = http.createServer(app);
+const server = http.createServer(app);
 
 server.listen(port);
 server.on('error', onError);
@@ -58,5 +57,5 @@ function onListening() {
     var bind = typeof addr === 'string'
         ? 'pipe ' + addr
         : 'port ' + addr.port;
-    debug('Listening on ' + bind);
+    console.log('Listening on ' + bind);
 }
