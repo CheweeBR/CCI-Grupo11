@@ -10,4 +10,8 @@ router.get('/Cadastro', function(req, res, next) {
   res.render("cadastro", null);
 });
 
+router.get('/login', function(req, res, next) {
+  res.render("login", null);
+});
+
 module.exports = router;
