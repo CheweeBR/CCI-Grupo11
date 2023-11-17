@@ -4,17 +4,24 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mustacheExpress = require('mustache-express');
+const session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
 
+app.use(session({
+  secret: 'goiaba', 
+  resave: false,
+  saveUninitialized: true,
+}));
+
 // view engine setup
 app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
 app.set('views', path.join(__dirname, 'views')); 
-app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, 'public'))); // Configurar CSS com mustache
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -40,5 +47,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(3001, () =>{
+  console.log("Executando...");
+})
 
 module.exports = app;
