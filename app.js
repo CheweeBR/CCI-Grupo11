@@ -21,6 +21,15 @@ app.use(session({
   saveUninitialized: true,
 }));
 
+const mongoose = require('mongoose');
+
+/**
+ * Database
+ */
+
+mongoose.set('strictQuery', false);
+mongoose.connect('mongodb+srv://admin:LQNitHuUPDva2PC8@cci-grupo11.syvxc1a.mongodb.net/?retryWrites=true&w=majority');
+
 // view engine setup
 app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
