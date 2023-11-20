@@ -18,5 +18,22 @@ router.get('/login', function(req, res) {
   res.render("login", null);
 });
 
+router.post('/login', function(req, res) {
+  var usuario = req.body.usuario;
+  var senha = req.body.senha;
+  if (usuario == "admin" && senha == "admin") {
+    req.session.usuario = usuario;
+    res.status(200).send(`Login bem-sucedido para ${username}`);
+    res.redirect('/');
+  } else {
+    alert("Usuário ou senha inválidos");
+    res.redirect('/login');
+  }
+});
+
+router.get('/register', function(req, res) {
+  res.render("register", null);
+});
+
 
 module.exports = router;

@@ -5,11 +5,15 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mustacheExpress = require('mustache-express');
 const session = require('express-session');
+const bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(session({
   secret: 'goiaba', 
@@ -47,5 +51,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(3001, () =>{
+  console.log("Executando...");
+})
 
 module.exports = app;
