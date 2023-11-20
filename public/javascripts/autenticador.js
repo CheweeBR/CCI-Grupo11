@@ -2,6 +2,11 @@ function goToRegister() {
     window.location.href = "/register";
 }
 
+function goToLogin() {
+    window.location.href = "/login";
+}
+
+
 function Register() {
     var username = document.getElementById("username").value;
     var senha = document.getElementById("senha").value;

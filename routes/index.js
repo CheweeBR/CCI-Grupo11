@@ -23,11 +23,9 @@ router.post('/login', function(req, res) {
   var senha = req.body.senha;
   if (usuario == "admin" && senha == "admin") {
     req.session.usuario = usuario;
-    res.status(200).send(`Login bem-sucedido para ${username}`);
     res.redirect('/');
   } else {
-    alert("Usuário ou senha inválidos");
-    res.redirect('/login');
+    res.render('login', { error: '⚠ Usuário ou senha inválidos' });
   }
 });
 

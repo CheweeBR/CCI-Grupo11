@@ -9,8 +9,11 @@
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form id="login-form">
-            <div class="form-group">
+        <form id="login-form" method="post" action="/login">
+            {{#error}}
+                <p style="color: red;">{{error}}</p>
+            {{/error}}       
+            <div class="form-group"> 
                 <label for="username">Usuario:</label>
                 <input type="text" id="usuario" name="usuario" required>
             </div>
@@ -18,7 +21,7 @@
                 <label for="password">Senha:</label>
                 <input type="password" id="senha" name="senha" required>
             </div>
-            <button type="button" onclick="submitForm()">Login</button>
+            <button type="submit">Login</button>
             ou
             <button type="button" onclick="goToRegister()">Registrar-se</button> 
         </form>
