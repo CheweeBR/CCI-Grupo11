@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Example App - Home</title>
     <link rel="stylesheet" href="public/styles/style-login.css">
-    <title>Login</title>
 </head>
 <body>
     <div class="login-container">
         <h2>Login</h2>
         <form id="login-form" method="post" action="/login">
-            {{#error}}
+            {{#if error}}
                 <p style="color: red;">{{error}}</p>
-            {{/error}}       
+            {{/if}}       
             <div class="form-group"> 
                 <label for="username">Usuario:</label>
                 <input type="text" id="usuario" name="usuario" required>

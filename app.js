@@ -3,10 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const mustacheExpress = require('mustache-express');
+const exphbs = require('express-handlebars');
 const session = require('express-session');
 const bodyParser = require('body-parser');
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -31,8 +30,8 @@ mongoose.set('strictQuery', false);
 mongoose.connect('mongodb+srv://admin:LQNitHuUPDva2PC8@cci-grupo11.syvxc1a.mongodb.net/?retryWrites=true&w=majority');
 
 // view engine setup
-app.engine('mustache', mustacheExpress());
-app.set('view engine', 'mustache');
+app.engine('handlebars', exphbs.engine());
+app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'views')); 
 app.use('/public', express.static(path.join(__dirname, 'public'))); // Configurar CSS com mustache
 
