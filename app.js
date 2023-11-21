@@ -11,6 +11,9 @@ const usersRouter = require('./routes/users');
 
 const app = express();
 
+app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/views', express.static(path.join(__dirname, 'views')));
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

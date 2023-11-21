@@ -3,7 +3,7 @@ $(function() {
 
 	// Colocar a página home na main quando entrar no site
 	$(document).ready(function () {
-		$('main').load('home.html');
+		$('main').load('views/home.handlebars');
 		
 		$('#home').addClass('active');
 	});
@@ -22,7 +22,7 @@ $(function() {
 	  var target = $(this).attr('id');
   
 	  // Carregue o conteúdo da página desejada
-	  $('main').load(target + '.html');
+	  $('main').load('views/' + target + '.handlebars');
 	});
   
 	 // Mostrar e esconder a sidebar pelo menu-toggle
