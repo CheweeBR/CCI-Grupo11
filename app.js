@@ -11,9 +11,6 @@ const usersRouter = require('./routes/users');
 
 const app = express();
 
-app.use('/public', express.static(path.join(__dirname, 'public')));
-app.use('/views', express.static(path.join(__dirname, 'views')));
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -28,6 +25,8 @@ app.engine('handlebars', exphbs.engine());
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'views')); 
 app.use('/public', express.static(path.join(__dirname, 'public'))); // Configurar CSS com mustache
+app.use('/views', express.static(path.join(__dirname, 'views')));
+app.use('/fonts/icomoon', express.static(path.join(__dirname, 'fonts/icomoon')));
 
 app.use(logger('dev'));
 app.use(express.json());
