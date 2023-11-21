@@ -1,15 +1,15 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 const bodyParser = require('body-parser');
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 
-var app = express();
+const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -19,15 +19,6 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
 }));
-
-const mongoose = require('mongoose');
-
-/**
- * Database
- */
-
-mongoose.set('strictQuery', false);
-mongoose.connect('mongodb+srv://admin:LQNitHuUPDva2PC8@cci-grupo11.syvxc1a.mongodb.net/?retryWrites=true&w=majority');
 
 // view engine setup
 app.engine('handlebars', exphbs.engine());
@@ -59,9 +50,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-app.listen(3001, () =>{
-  console.log("Executando porta 3001...");
-})
 
 module.exports = app;
