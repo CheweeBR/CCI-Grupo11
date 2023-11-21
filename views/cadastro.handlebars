@@ -3,10 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/styles/cadastro.css">
     <title>Document</title>
 </head>
 <body>
-    <p>TELA DE CADASTRO</p>
+
+<div class="container pt-5">
+    <h2>Cadastro de Meninas</h2>
+    <form>
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" id="nome" placeholder="Digite o nome" required>
+        </div>
+        <div class="form-group">
+            <label for="idade">Idade:</label>
+            <input type="number" class="form-control" id="idade" placeholder="Digite a idade" required>
+        </div>
+        <div class="form-group">
+            <label for="endereco">Endereço:</label>
+            <input type="text" class="form-control" id="logradouro" placeholder="Logradouro (Rua, Avenida, etc.)" required>
+            <input type="text" class="form-control mt-2" id="numero" placeholder="Número" required>
+            <input type="text" class="form-control mt-2" id="complemento" placeholder="Complemento">
+            <input type="text" class="form-control mt-2" id="bairro" placeholder="Bairro" required>
+            <input type="text" class="form-control mt-2" id="cidade" placeholder="Cidade" required>
+            <input type="text" class="form-control mt-2" id="estado" placeholder="Estado" required>
+        </div>
+        <div class="form-group">
+            <label for="renda">Renda Familiar Per Capita:</label>
+            <input type="number" class="form-control" id="renda" placeholder="Digite a renda familiar per capita" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </body>
 </html>
+
