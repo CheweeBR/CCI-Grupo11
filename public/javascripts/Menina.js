@@ -38,7 +38,7 @@ class Menina {
       const database = client.db('CCI-Grupo11');
       const collection = database.collection('Meninas');
   
-      const meninas = await collection.find().sort({ renda: 1 }).toArray();
+      const meninas = await collection.find().sort({ renda: 1 }).limit(20).toArray();
   
       return meninas;
     } catch (error) {
