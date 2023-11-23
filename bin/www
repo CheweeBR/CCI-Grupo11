@@ -7,14 +7,23 @@
 const app = require('../app');
 const debug = require('debug')('cci-grupo11:server');
 const http = require('http');
-const mongoose = require('mongoose');
+const MongoClient = require('mongodb').MongoClient;
 
 /**
  * Database
  */
 
-mongoose.set('strictQuery', false);
-mongoose.connect("mongodb+srv://admin:LQNitHuUPDva2PC8@cci-grupo11.syvxc1a.mongodb.net/?retryWrites=true&w=majority");
+const mongoUrl = "mongodb+srv://admin:LQNitHuUPDva2PC8@cci-grupo11.syvxc1a.mongodb.net/?retryWrites=true&w=majority";
+
+const client = new MongoClient(mongoUrl);
+
+client.connect()
+  .then(() => {
+    console.log('Conectado ao MongoDB');
+  })
+  .catch((error) => {
+    console.error('Erro ao conectar ao MongoDB:', error);
+  });
 
 /**
  * Get port from environment and store in Express.

@@ -14,6 +14,23 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+//POST para o cadastro de meninas
+const Menina = require('./public/javascripts/Menina.js'); // Importa o modelo
+
+app.post('/cadastrar_menina', async (req, res) => {
+  try {
+    const menina = new Menina(req.body);
+    await menina.save();
+
+    //AINDA PRECISO FAZER O REDIRECIONAMENTO CERTO
+    console.log('Menina cadastrada com sucesso:', menina);
+  } catch (error) {
+    console.error('Erro ao cadastrar menina:', error);
+  }
+});
+
+//
+
 app.use(session({
   secret: 'goiaba', 
   resave: false,
