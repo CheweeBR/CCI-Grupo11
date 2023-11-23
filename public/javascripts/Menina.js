@@ -28,6 +28,28 @@ class Menina {
       await client.close();
     }
   }
+
+  static async find() {
+    const client = new MongoClient(mongoURL);
+  
+    try {
+      await client.connect();
+  
+      const database = client.db('CCI-Grupo11');
+      const collection = database.collection('Meninas');
+  
+      const meninas = await collection.find().sort({ renda: 1 }).toArray();
+  
+      return meninas;
+    } catch (error) {
+      console.error('Erro ao obter meninas:', error);
+      throw error;
+    } finally {
+      await client.close();
+    }
+  }
+  
+
 }
 
 module.exports = Menina;

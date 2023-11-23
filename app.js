@@ -11,12 +11,23 @@ const usersRouter = require('./routes/users');
 
 const app = express();
 
+const Menina = require('./public/javascripts/Menina.js'); // Importa o modelo
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//POST para o cadastro de meninas
-const Menina = require('./public/javascripts/Menina.js'); // Importa o modelo
+//Para o fetch da selecao.js, dar find() no Menina.js e retornar para fazer a iteração nos dados para colocar na table
+app.get('/meninas', async (req, res) => {
+  try {
+    const meninas = await Menina.find();
+    res.json(meninas);
+  } catch (error) {
+    console.error('Erro ao obter meninas:', error);
+    res.status(500).json({ message: 'Erro interno do servidor' });
+  }
+});
 
+//POST para o cadastro de meninas
 app.post('/cadastrar_menina', async (req, res) => {
   try {
     const menina = new Menina(req.body);
