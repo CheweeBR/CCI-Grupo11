@@ -23,20 +23,20 @@ class User {
         }
     }
 
-    static async find() {
+    static async find(username) {
         const client = new MongoClient(mongoURL);
 
         try {
             await client.connect();
 
             const database = client.db('CCI-Grupo11');
-            const collection = database.collection('Meninas');
+            const collection = database.collection('Usuarios');
 
-            const meninas = await collection.find().sort({ renda: 1 }).limit(20).toArray();
+            const users = await collection.findOne({ username: username });
 
-            return meninas;
+            return users;
         } catch (error) {
-            console.error('Erro ao obter meninas:', error);
+            console.error('Erro ao obter usuários:', error);
             throw error;
         } finally {
             await client.close();

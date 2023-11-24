@@ -23,15 +23,30 @@ router.get('/login', function(req, res) {
   res.render("login", null);
 });
 
-router.post('/login', function(req, res) {
-  var usuario = req.body.usuario;
-  var senha = req.body.senha;
-  if (usuario == "admin" && senha == "admin") {
-    req.session.usuario = usuario;
-    res.redirect('/');
-  } else {
+router.post('/login', async function(req, res) {
+  const {username, password} = req.body;
+
+  try {
+    const user = await User.find(username);
+
+    if (user.password == password) {
+      req.session.usuario = username;
+      res.redirect('/');
+    } else {
+      res.render('login', { error: '⚠ Usuário ou senha inválidos' });
+    }
+  } catch (error) {
+    console.error('Erro ao realizar login:', error);
     res.render('login', { error: '⚠ Usuário ou senha inválidos' });
   }
+
+
+  // if (username == "admin" && password == "admin") {
+  //   req.session.usuario = username;
+  //   res.redirect('/');
+  // } else {
+  //   res.render('login', { error: '⚠ Usuário ou senha inválidos' });
+  // }
 });
 
 router.get('/register', function(req, res) {
