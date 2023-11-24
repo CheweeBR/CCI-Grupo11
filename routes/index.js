@@ -39,14 +39,6 @@ router.post('/login', async function(req, res) {
     console.error('Erro ao realizar login:', error);
     res.render('login', { error: '⚠ Usuário ou senha inválidos' });
   }
-
-
-  // if (username == "admin" && password == "admin") {
-  //   req.session.usuario = username;
-  //   res.redirect('/');
-  // } else {
-  //   res.render('login', { error: '⚠ Usuário ou senha inválidos' });
-  // }
 });
 
 router.get('/register', function(req, res) {
