@@ -11,7 +11,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/Cadastro', function(req, res, next) {
-  res.render("cadastro", null);
+  if (req.session && req.session.usuario) {
+    res.render("cadastro", null);
+  } else {
+    res.redirect('/login');
+  }
 });
 
 router.get('/login', function(req, res) {
@@ -54,6 +58,11 @@ router.post('/register', function(req, res) {
       username: username,
       senha: senha    
   }
+});
+
+router.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error'); 
 });
 
 
