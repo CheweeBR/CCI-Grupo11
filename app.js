@@ -11,7 +11,7 @@ const usersRouter = require('./routes/users');
 
 const app = express();
 
-const Menina = require('./public/javascripts/Menina.js'); // Importa o modelo
+const Menina = require('./models/Menina.js'); // Importa o modelo
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
