@@ -9,7 +9,7 @@
 <body>
     <div class="login-container">
         <h2>Registro</h2>
-        <form id="registro-form">
+        <form id="registro-form" method="post">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
@@ -20,11 +20,10 @@
                 <label for="password">Repetir senha:</label>
                 <input type="password" id="senha2" name="senha2" required>               
             </div>
-            <button type="button" onclick="Register()">Registrar-se</button>
+            <button type="submit">Registrar-se</button>
             ou
-            <button type="button" onclick="goToLogin()">Voltar</button> 
+            <a href="/login"><button type="button">Voltar</button></a>
         </form>
     </div>
 </body>
-<script src="/public/javascripts/autenticador.js"></script>
 </html>

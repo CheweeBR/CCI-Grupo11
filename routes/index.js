@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const User = require('../public/javascripts/User.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -37,10 +38,12 @@ router.get('/register', function(req, res) {
   res.render("register", null);
 });
 
-router.post('/register', function(req, res) {
-  var username = req.body.username;
-  var senha = document.getElementById("senha").value;
-  var senha2 = document.getElementById("senha2").value;
+router.post('/register', async function(req, res) {
+  const {username, senha, senha2} = req.body;
+  // var username = req.body.username;
+  // var senha = req.body.senha;
+  // var senha2 = req.body.senha2;
+
   if (username == "" || senha == "" || senha2 == "") {
       alert("Preencha todos os campos");
       return false;
@@ -54,10 +57,9 @@ router.post('/register', function(req, res) {
       return false;
   }
 
-  user = {
-      username: username,
-      senha: senha    
-  }
+  const user = new User({username: username, password: senha2});
+  await user.save();
+  res.redirect('/login');
 });
 
 router.use(function(err, req, res, next) {
