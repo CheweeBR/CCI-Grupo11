@@ -39,12 +39,9 @@ router.get('/register', function(req, res) {
 });
 
 router.post('/register', async function(req, res) {
-  const {username, senha, senha2} = req.body;
-  // var username = req.body.username;
-  // var senha = req.body.senha;
-  // var senha2 = req.body.senha2;
+  const {username, password, password2} = req.body;
 
-  if (username == "" || senha == "" || senha2 == "") {
+  if (username == "" || password == "" || password2 == "") {
       alert("Preencha todos os campos");
       return false;
   }
@@ -52,12 +49,12 @@ router.post('/register', async function(req, res) {
       alert("Nome de usuário muito curto");
       return false;
   }
-  if (senha != senha2) {
+  if (password != password2) {
       alert("Senhas diferentes");
       return false;
   }
 
-  const user = new User({username: username, password: senha2});
+  const user = new User(req.body);
   await user.save();
   res.redirect('/login');
 });
