@@ -47,12 +47,15 @@ $(function() {
   
 	  // Obtenha o valor do id
 	  var target = $(this).attr('id');
-  
+
 	  // Carregue o conteúdo da página desejada
-	  $('main').load('views/' + target + '.handlebars', function() {
-		buscarMeninas();
-	  });
-	});
+	  if(target === 'selecao'){
+		$('main').load('views/' + target + '.handlebars', function() {
+			buscarMeninas();
+		});
+	  } else {
+		$('main').load('views/' + target + '.handlebars');
+	  }
   
 	 // Mostrar e esconder a sidebar pelo menu-toggle
 	$('.js-menu-toggle').click(function(e) {
@@ -77,4 +80,4 @@ $(function() {
 		}
 	  }
 	});
-  });
+  });});
