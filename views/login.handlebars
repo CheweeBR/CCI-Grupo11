@@ -11,7 +11,10 @@
         <form id="login-form" method="post" action="/login">
             {{#if error}}
                 <p style="color: red;">{{error}}</p>
-            {{/if}}       
+            {{/if}}
+            {{#if sucess}}
+                <p style="color: green;">{{sucess}}</p>
+            {{/if}}           
             <div class="form-group"> 
                 <label for="username">Usuario:</label>
                 <input type="text" id="username" name="username" required>

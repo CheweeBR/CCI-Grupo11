@@ -62,7 +62,7 @@ router.post('/register', async function(req, res) {
 
   const user = new User(req.body);
   await user.save();
-  res.redirect('/login');
+  res.render('login', { sucess: 'Cadastro realizado com sucesso!' });
 });
 
 router.use(function(err, req, res, next) {
