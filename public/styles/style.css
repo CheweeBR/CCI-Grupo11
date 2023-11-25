@@ -125,7 +125,7 @@ aside .side-inner .logo-wrap .logo {
   width: 50px;
   float: left;
   height: 50px;
-  background: #007bff;
+  background: #c04da7;
   border-radius: 50%;
   position: relative;
   -webkit-transition: .3s margin ease;
@@ -193,7 +193,7 @@ aside .side-inner .nav-menu ul li a:active, aside .side-inner .nav-menu ul li a:
 }
 aside .side-inner .nav-menu ul li a:hover {
   color: #000;
-  background: #f4f4f4;
+  background: #FEF4F3;
 }
 
 aside .side-inner .nav-menu ul li a .wrap-icon {

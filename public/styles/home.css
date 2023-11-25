@@ -1,10 +1,11 @@
 body {
-    background-color: #efefef;
+    background-color: #FEF4F3;
     font-size: 16px;
+    color: black;
 }
 
 .container{
-    background-color: #efefef;
+    background-color: #FEF4F3;
 }
 
 h4, h5 {
@@ -13,4 +14,17 @@ h4, h5 {
 
 p, ul, li {
     font-size: 1.2em;
+    color: black;
+}
+
+.jumbotron {
+    background-color: #FEF4F3;
+}
+.jumbotron img {
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
+    margin-right: 20px; /* Espaçamento à direita da imagem */
+}
+
+.card-body {
+    background-color: #fef4f394;
 }

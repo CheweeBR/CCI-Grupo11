@@ -34,6 +34,7 @@ app.post('/cadastrar_menina', async (req, res) => {
 
     //AINDA PRECISO FAZER O REDIRECIONAMENTO CERTO
     console.log('Menina cadastrada com sucesso:', menina);
+    
   } catch (error) {
     console.error('Erro ao cadastrar menina:', error);
   }

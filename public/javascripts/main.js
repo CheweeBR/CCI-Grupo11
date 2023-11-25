@@ -33,8 +33,6 @@ $(function() {
 		$('#home').addClass('active');
 	});
 
-	
-  
 	// Função para destacar a página em que o usuário escolha entrar e mudar o conteúdo
 	$('.nav-menu li').click(function(e) {
 	  e.preventDefault();
@@ -80,4 +78,5 @@ $(function() {
 		}
 	  }
 	});
-  });});
+  });
+});
