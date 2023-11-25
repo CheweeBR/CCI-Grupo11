@@ -10,7 +10,12 @@
     <div class="login-container">
         <h2>Registro</h2>
         <form id="registro-form" method="post">
+            {{#if error}}
+                <p style="color: red;">{{error}}</p>
+            {{/if}}  
             <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="text" id="email" name="email" required>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
             </div>

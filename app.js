@@ -23,7 +23,6 @@ app.get('/meninas', async (req, res) => {
     res.json(meninas);
   } catch (error) {
     console.error('Erro ao obter meninas:', error);
-    res.status(500).json({ message: 'Erro interno do servidor' });
   }
 });
 

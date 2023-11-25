@@ -8,6 +8,7 @@
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "email-validator": "^2.0.4",
     "express": "~4.16.1",
     "express-handlebars": "^7.1.2",
     "express-session": "^1.17.3",

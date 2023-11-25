@@ -3,6 +3,7 @@ const mongoURL = 'mongodb+srv://admin:LQNitHuUPDva2PC8@cci-grupo11.syvxc1a.mongo
 
 class User {
     constructor(data) {
+        this.email = data.email;
         this.username = data.username;
         this.password = data.password;
     }

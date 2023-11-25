@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const EmailValidator = require("email-validator");
 const User = require('../models/User.js');
 
 /* GET home page. */
@@ -46,18 +47,16 @@ router.get('/register', function(req, res) {
 });
 
 router.post('/register', async function(req, res) {
-  const {username, password, password2} = req.body;
+  const {email, username, password, password2} = req.body;
 
-  if (username == "" || password == "" || password2 == "") {
-      alert("Preencha todos os campos");
+   if(!EmailValidator.validate(email)){
+      res.render('register', { error: '⚠ E-mail inválido' });
       return false;
-  }
-  if (username.length < 5) {
-      alert("Nome de usuário muito curto");
+  } else if (username.length < 5) {
+      res.render('register', { error: '⚠ Nome de usuário muito curto' });
       return false;
-  }
-  if (password != password2) {
-      alert("Senhas diferentes");
+  } else if (password != password2) {
+      res.render('register', { error: '⚠ Senhas diferentes' });
       return false;
   }
 
