@@ -54,6 +54,7 @@ $(function() {
 	  } else {
 		$('main').load('views/' + target + '.handlebars');
 	  }
+	});
   
 	 // Mostrar e esconder a sidebar pelo menu-toggle
 	$('.js-menu-toggle').click(function(e) {
@@ -78,5 +79,4 @@ $(function() {
 		}
 	  }
 	});
-  });
 });
